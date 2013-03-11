@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://tablist/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://tablist/locale/overlay.dtd">
+<overlay id="tablist-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="overlay.js"/>
+
+  <menupopup id="menu_ToolsPopup">
+        <menuitem id="id_tablist" label="&tablist;" command="cmd_openTabList" key="key_openTabList"/>     
+  </menupopup>
+
+
+    <keyset id="mainKeyset">
+    <!--
+	<key id="key_openTabList" key="VK_F12" modifiers="control shift" command="cmd_openTabList"/>
+     -->
+    </keyset>
+
+    <commandset id="mainCommandSet">
+        <command id="cmd_openTabList" oncommand="TabList.onMenuItemCommand(event)"/>
+    </commandset>
+  
+</overlay>
