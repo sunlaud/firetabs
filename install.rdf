@@ -1,18 +1,20 @@
 <?xml version="1.0"?>
-<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
   <Description about="urn:mozilla:install-manifest">
-  
-    <em:id>tablist@com.yarik</em:id>
-    <em:name>Tab List extension for Firefox</em:name>
-    <em:version>1.0</em:version>
-    <em:description>Demo extension.</em:description>
-    <em:creator>Yarik</em:creator>
+
+    <em:id>tablist@sunlaud</em:id>
+    <em:name>Tab List</em:name>
+    <em:version>0.3</em:version>
+    <em:description>Extension that shows all open tabs in one document with hyperlinks</em:description>
+    <em:creator>sunlaud</em:creator>
     <!-- optional items -->
+<!--
     <em:contributor>A person who helped you</em:contributor>
     <em:contributor>Another one</em:contributor>
     <em:homepageURL>http://kb.mozillazine.org/Getting_started_with_extension_development</em:homepageURL>
+-->
     <!--em:optionsURL>chrome://sampleext/content/settings.xul</em:optionsURL>
     <em:aboutURL>chrome://sampleext/content/about.xul</em:aboutURL>
     <em:iconURL>chrome://sampleext/skin/mainicon.png</em:iconURL>
@@ -23,7 +25,7 @@
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
         <em:minVersion>3.6</em:minVersion>
-        <em:maxVersion>20.0.*</em:maxVersion>
+        <em:maxVersion>99.0.*</em:maxVersion>
       </Description>
     </em:targetApplication>
 

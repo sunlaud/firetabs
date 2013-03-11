@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://tablist/skin/overlay.css" type="text/css"?>
-<!DOCTYPE overlay SYSTEM "chrome://tablist/locale/overlay.dtd">
+<!DOCTYPE overlay SYSTEM "chrome://tablist/locale/tablist.dtd">
 <overlay id="tablist-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-  <script src="overlay.js"/>
+  <script src="tablist.js"/>
 
   <menupopup id="menu_ToolsPopup">
     <menuitem id="id_tablist" label="&tablist.menu.openTablist;" command="cmd_openTabList" key="key_openTabList"/>
