@@ -4,7 +4,7 @@
 
   <Description about="urn:mozilla:install-manifest">
 
-    <em:id>firetabs@sunlaud.com</em:id>
+    <em:id>firetabs@sunlaud</em:id>
     <em:name>Firetabs</em:name>
     <em:version>0.3</em:version>
     <em:description>Extension that shows all open tabs in one document with hyperlinks</em:description>

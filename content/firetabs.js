@@ -1,5 +1,4 @@
-if(!com) var com={};
-if(!com.sunlaud) com.sunlaud={};
+if(!sunlaud) var sunlaud={};
 
 (function() {
 
@@ -60,7 +59,7 @@ if(!com.sunlaud) com.sunlaud={};
 
 
 
-    com.sunlaud.Firetabs = {
+    sunlaud.Firetabs = {
         init: function(e) {
             this.initialized = true;
         },

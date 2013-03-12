@@ -16,7 +16,7 @@
   </keyset>
 
   <commandset id="mainCommandSet">
-    <command id="cmd_firetabsOpen" oncommand="com.sunlaud.Firetabs.open(event)"/>
+    <command id="cmd_firetabsOpen" oncommand="sunlaud.Firetabs.open(event)"/>
   </commandset>
 
   <stringbundleset id="stringbundleset">
