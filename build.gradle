@@ -1,0 +1,51 @@
+apply plugin: "base"
+
+//~~~~~~~~~~~~~~~~~~~~~ Properties And Configs ~~~~~~~~~~~~~~~~~~~~~
+
+group = "sunlaud.firetabs"
+version = "0.3"
+description = "Firefox extension that collects all open tabs into one document"
+
+
+ext {
+    explodedXpi = "${buildDir}/xpi"
+    xpiDirs = ['skin/','content/','locale/']
+    sources = 'src'
+}
+
+
+//~~~~~~~~~~~~~~~~~~~~~ Tasks ~~~~~~~~~~~~~~~~~~~~~
+
+
+task appJar(type: Zip) {
+    from sources
+    include(xpiDirs)
+    destinationDir = file("${explodedXpi}/chrome")
+    extension = 'jar'
+    version = null
+}
+
+task manifest(type:Copy) {
+    from sources
+    include 'chrome.manifest'
+    filter { line -> line.replaceAll("\\s(${xpiDirs.join('|')})", { match -> "\tjar:chrome/${project.name}.jar!/" + match[1] }) }
+    into explodedXpi
+}
+
+task xpiContents(type:Copy, dependsOn: [appJar, manifest]) {
+    from sources
+    include 'install.rdf'
+    include 'readme.txt'
+    into explodedXpi
+    includeEmptyDirs = false
+}
+
+task xpi(type: Zip) {
+    from xpiContents
+    extension = 'xpi'
+}
+
+
+
+
+
