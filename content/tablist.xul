@@ -16,7 +16,7 @@
   </keyset>
 
   <commandset id="mainCommandSet">
-    <command id="cmd_openTabList" oncommand="TabList.onMenuItemCommand(event)"/>
+    <command id="cmd_openTabList" oncommand="sunlaud.TabList.onMenuItemCommand(event)"/>
   </commandset>
 
   <stringbundleset id="stringbundleset">
