@@ -1,5 +1,5 @@
 ##About
-Tablist is a Firefox extension that shows names and urls of all your open tabs in one html document (opened in new tab).
+Firetabs is a Firefox extension that shows names and urls of all your open tabs in one html document (opened in new tab).
 
 __No need to keep that hundred of tabs opened any more!__
 

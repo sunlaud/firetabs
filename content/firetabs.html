@@ -2,7 +2,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Tabs List</title>
 <script>
-	
+
 function waitForWinList() {
 	if(window.winList) {
 		console.dir(window.opener);
@@ -18,7 +18,7 @@ function buildWinTabList() {
 	var rootTag = new HtmlTag("ul");
 	for(var j=0; j<winList.length; j++) {
 		var tabList = winList[j];
-		var ulTag = new HtmlTag("ul");			
+		var ulTag = new HtmlTag("ul");
 		for(var i=0; i<tabList.length; i++) {
 			var li = new HtmlTag("li").attr("id", "win" + j + "_tab" + i);
 			li.appendInnerTag(new HtmlTag("a").text(tabList[i].title || "No title").attr("href", tabList[i].url).attr("target", "_blank").attr("class", "tab_link"));
@@ -26,24 +26,24 @@ function buildWinTabList() {
 			try {
 				readableUri = decodeURIComponent(readableUri);
 			} catch(e) {
-			}		
+			}
 			li.appendInnerTag(new HtmlTag("span").text(" :: " + readableUri).attr("style", "color: gray; word-wrap: break-word;"));
 			li.appendInnerTag(new HtmlTag("span").text(" ✘ ")
 				.attr("onClick", "var el = document.getElementById('win" + j + "_tab" + i + "'); el.parentNode.removeChild(el)")
 				.attr("style", "color: red; cursor: pointer; font-size: 1.3em;"));
 			ulTag.appendInnerTag(li);
 		}
-			
+
 		var winItem = new HtmlTag("li").text("Window " + j + ":").attr("id", "win" + j);
 		winItem.appendInnerTag(new HtmlTag("span").text(" ✘ ")
 				.attr("onClick", "var el = document.getElementById('win" + j + "'); el.parentNode.removeChild(el)")
-				.attr("style", "color: red; cursor: pointer; font-size: 1.3em;"));			
+				.attr("style", "color: red; cursor: pointer; font-size: 1.3em;"));
 		winItem.appendInnerTag(ulTag);
-		rootTag.appendInnerTag(winItem);	
+		rootTag.appendInnerTag(winItem);
 	}
-	document.body.innerHTML = "\n" + rootTag.toString(); 
+	document.body.innerHTML = "\n" + rootTag.toString();
 }
-		
+
 
 
 
@@ -59,17 +59,17 @@ function HtmlTag(tag) {
 HtmlTag.prototype.text = function(txt) {
 	if(txt !== undefined) {
 		this.txt = txt;
-		return this;		
+		return this;
 	}
-	return this.txt;	
+	return this.txt;
 }
 
 HtmlTag.prototype.attr = function(name, value) {
 	if(value !== undefined) {
 		this.attributes[name] = value;
-		return this;		
+		return this;
 	}
-	return this.attributes[name];	
+	return this.attributes[name];
 }
 
 HtmlTag.prototype.appendInnerTag = function(innerTag) {
@@ -83,10 +83,10 @@ HtmlTag.prototype.toString = function() {
 
 	for(var i=0; i<this.innerTags.length; i++) {
 		this.innerTags[i].depth = this.depth + 1;
-		tagContentsStr += "\n" + "\t".repeat(this.depth) + this.innerTags[i].toString();		
+		tagContentsStr += "\n" + "\t".repeat(this.depth) + this.innerTags[i].toString();
 	}
 	for(var name in this.attributes) {
-		tagPropsStr += " " + name + "=" + "\"" + this.attributes[name] + "\"";		
+		tagPropsStr += " " + name + "=" + "\"" + this.attributes[name] + "\"";
 	}
 	return "<" + this.tag + tagPropsStr + ">" + tagContentsStr + (this.innerTags.length ? "\n"  + "\t".repeat(this.depth-1) : "") + "</" + this.tag + ">";
 }
@@ -98,7 +98,7 @@ String.prototype.repeat = function(times) {
 	}
 	return res;
 }
-	
+
 
 </script>
 

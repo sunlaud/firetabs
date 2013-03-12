@@ -1,20 +1,21 @@
-if(!sunlaud) var sunlaud={};
+if(!com) var com={};
+if(!com.sunlaud) com.sunlaud={};
 
 (function() {
 
     const log = {
         debug: function(msg) {
-            Application.console.log("extension tablist: " + msg);
+            Application.console.log("extension firetabs: " + msg);
         },
         error: function(msg) {
-            Components.utils.reportError("extension tablist: " + msg);
+            Components.utils.reportError("extension firetabs: " + msg);
         }
     };
 
     /* get localized string by name */
     function getString(name) {
         try {
-            return document.getElementById("stringBundleTablist").getString(name);
+            return document.getElementById("stringBundleFiretabs").getString(name);
         } catch (ex) {
             log.error("failed to get translation for: " + name + ", details:\n" + ex);
         }
@@ -41,7 +42,7 @@ if(!sunlaud) var sunlaud={};
             }
             winList.push(tabList);
         }
-        var url = "chrome://tablist/content/tablist.html";
+        var url = "chrome://firetabs/content/firetabs.html";
         var win = window.open(url);
         /* wait for window load, events onLoad can not be bind due to unknown reason */
         var timerId = setInterval(function() {
@@ -54,16 +55,16 @@ if(!sunlaud) var sunlaud={};
                 //~ win.buildWinTabList();
             }
         }, 100);
-        //alert("test: " + getString("tablist.test") + " - " + getString("tablist.test.notranslate"));
+        //alert("test: " + getString("firetabs.test") + " - " + getString("firetabs.test.notranslate"));
     }
 
 
 
-    sunlaud.TabList = {
-        onLoad: function(e) {
+    com.sunlaud.Firetabs = {
+        init: function(e) {
             this.initialized = true;
         },
-        onMenuItemCommand: function(e) {
+        open: function(e) {
             showTablist();
         }
     };

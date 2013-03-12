@@ -2,7 +2,7 @@
 
 # Build config for the build script, build.sh. Look there for more info.
 
-APP_NAME=tablist
+APP_NAME=firetabs
 CHROME_PROVIDERS="content locale skin"
 CLEAN_UP=1
 ROOT_FILES="readme.txt"

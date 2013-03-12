@@ -1,7 +1,7 @@
-content	tablist	content/
-overlay	chrome://browser/content/browser.xul	chrome://tablist/content/tablist.xul
+content	firetabs	content/
+overlay	chrome://browser/content/browser.xul	chrome://firetabs/content/firetabs.xul
 
-locale	tablist	en-US	locale/en-US/
+locale	firetabs	en-US	locale/en-US/
 
-skin	tablist	classic/1.0	skin/
-style	chrome://global/content/customizeToolbar.xul	chrome://tablist/skin/tablist.css
+skin	firetabs	classic/1.0	skin/
+style	chrome://global/content/customizeToolbar.xul	chrome://firetabs/skin/firetabs.css
