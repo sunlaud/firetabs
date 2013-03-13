@@ -7,7 +7,7 @@ Firetabs is a Firefox extension that lists all your open tabs in one html docume
 * Struggle with Firefox for memory?
 * Tabs "just in case"?
 
-Then you know why.
+...then you know why
 
 ##Features
 * Every entry in tab list is hyperlink to page loaded in tab, so you can easily (re)open your tabs
@@ -17,24 +17,26 @@ Then you know why.
 * Tab url is shown as additional hint (in case document title is empty or/and not very informative)
 
 ##Install
-Firetabs is very young and hosted only here for now, it cannot be found at addons.mozilla.org.
-You can install extension manually using this link: [download page]
 
-Or install from .xpi file (previously downloaded from link above or obtained by other means):
+Firetabs is very young and hosted only at <a href="http://code.google.com/p/firetabs-extension/downloads/list">Google Code</a> for now, it cannot be found at addons.mozilla.org. As such, no ability to magically auto-install by one click :(
 
-1. Open Firefox Extension Manager: Tools --> Addons
-2. Click drop-down box in top right corner (near search field) and select "Install addon from file"
-3. Point to .xpi file and follow instructions.
+You have to install extension manually:
 
+1. download .xpi file from Downloads section
+2. Open Firefox Extension Manager: Tools --> Addons
+3. Click drop-down box in top right corner (near search field) and select "Install addon from file"
+4. Point to .xpi file and follow instructions.
 
 ##Develop
 You are welcome to contribute!
 
-In order to build binary distribution you must have gradle (http://www.gradle.org) installed.
+In order to build binary distribution you must have <a href="http://www.gradle.org">gradle</a> installed.
 To build .xpi execute
 
     gradle xpi
 
+##Downloads
+All downloadable files are available on <a href="http://code.google.com/p/firetabs-extension/downloads/list">Google Code project page</a> (GitHub abandoned Downloads support for new projects).
 
 ##License
    Copyright 2013 sunlaud
