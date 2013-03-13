@@ -8,8 +8,9 @@ description = "Firefox extension that collects all open tabs into one document"
 
 
 ext {
-    explodedXpi = "${buildDir}/xpi"
-    xpiDirs = ['skin/','content/','locale/']
+    appDirs = ['skin/','content/','locale/']
+    additionalFiles = ['readme.txt']
+    explodedXpi = "${buildDir}/${project.name}"
     sources = 'src'
 }
 
@@ -19,7 +20,7 @@ ext {
 
 task appJar(type: Zip) {
     from sources
-    include(xpiDirs)
+    include(appDirs)
     destinationDir = file("${explodedXpi}/chrome")
     extension = 'jar'
     version = null
@@ -28,14 +29,14 @@ task appJar(type: Zip) {
 task manifest(type:Copy) {
     from sources
     include 'chrome.manifest'
-    filter { line -> line.replaceAll("\\s(${xpiDirs.join('|')})", { match -> "\tjar:chrome/${project.name}.jar!/" + match[1] }) }
+    filter { line -> line.replaceAll("\\s(${appDirs.join('|')})", { match -> "\tjar:chrome/${project.name}.jar!/" + match[1] }) }
     into explodedXpi
 }
 
 task xpiContents(type:Copy, dependsOn: [appJar, manifest]) {
     from sources
     include 'install.rdf'
-    include 'readme.txt'
+    include(additionalFiles)
     into explodedXpi
     includeEmptyDirs = false
 }
