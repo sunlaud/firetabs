@@ -18,14 +18,16 @@ Firetabs is a Firefox extension that lists all your open tabs in one html docume
 
 ##Install
 
-Firetabs is very young and hosted only at <a href="http://code.google.com/p/firetabs-extension/downloads/list">Google Code</a> for now, it cannot be found at addons.mozilla.org. As such, no ability to magically auto-install by one click :(
+Firetabs is very young project and hosted only at <a href="http://code.google.com/p/firetabs-extension/downloads/list">Google Code</a> for now, it cannot be found at addons.mozilla.org.
+Unfortunately, Google Code forces all downloads to open in "Save as..." dialog, effectively disabling single-click extension install.
+Untill Firetabs moves to its own server without this restriction, it has to be installed manually. 
 
-You have to install extension manually:
+To install extension manually:
 
-1. download .xpi file from Downloads section
+1. Download .xpi file from Downloads section
 2. Open Firefox Extension Manager: Tools --> Addons
 3. Click drop-down box in top right corner (near search field) and select "Install addon from file"
-4. Point to .xpi file and follow instructions.
+4. Point to downloaded .xpi file.
 
 ##Develop
 You are welcome to contribute!
