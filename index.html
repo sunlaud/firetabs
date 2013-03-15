@@ -8,10 +8,59 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="javascripts/scale.fix.js"></script>
+    <script src="javascripts/jquery-1.9.1.min.js"></script>
+    <script src="javascripts/jquery.blockUI.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+<script>
+
+function blockUI() {
+  $.blockUI({
+    message: '<img src="images/loading-text-big" style="margin: 7px 40px 0; border: none;">',
+    css: {
+      'background-color': '#171717',
+      width: '250px',
+      left: '10%',
+      right: '10%',
+      margin: 'auto'
+    }
+  });
+}
+
+
+function installPlugin(event) {
+  //$(event.target).parent().addClass("loading");
+  //$(".loading", event.target).show();
+  blockUI();
+  setTimeout(function(){
+    $.ajax({
+        url: "https://api.github.com/repos/sunlaud/Firetabs/contents/firetabs-0.3.xpi?ref=dist",
+        dataType: "jsonp",
+        success: function(response) {
+            if(response.meta.status == 200) {
+                window.location.href = "data: application/x-xpinstall;base64," + response.data.content;
+            } else {
+                alert("Failed to get Firetabs binary, try to download and install it manually");
+            }
+            //$(event.target).parent().removeClass("loading");
+            //$(".loading", event.target).hide();
+            $.unblockUI()
+        }
+    });
+  }, 0);
+
+}
+
+$(function(){
+  $(".install").click(installPlugin);
+  $("#install_link").click(installPlugin);
+});
+
+</script>
+
   </head>
   <body>
     <div class="wrapper">
@@ -20,8 +69,8 @@
         <p class="header">Firefox extension that lists all your open tabs in one html document</p>
 
         <ul>
-          <li class="download"><a class="buttons" href="https://github.com/sunlaud/Firetabs/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/sunlaud/Firetabs/tarball/master">Download TAR</a></li>
+          <li><p><a class="buttons install" href="javascript: void 0">Install</a></p></li>
+          <li class="download"><a class="buttons" href="http://code.google.com/p/firetabs-extension/downloads/list">Download</a></li>
           <li><a class="buttons github" href="https://github.com/sunlaud/Firetabs">View On GitHub</a></li>
         </ul>
 
@@ -34,7 +83,7 @@
 
 <p>Firetabs is a Firefox extension that lists all your open tabs in one html document, with tab names and page urls.</p>
 
-<h2>Why?</h2>
+<h2>Why</h2>
 
 <ul>
 <li>Lost in dozens of tabs?</li>
@@ -50,13 +99,14 @@
 <li>You can remove some tabs (or whole windows) from tab list (red "x") if you don't want to see them (they will not be saved either)</li>
 <li>In list tabs are grouped by windows they belong to for easy navigation</li>
 <li>Tab url is shown as additional hint (in case document title is empty or/and not very informative)</li>
-</ul><h2>Install</h2>
+</ul>
 
-<p>Firetabs is very young project and hosted only at <a href="http://code.google.com/p/firetabs-extension/downloads/list">Google Code</a> for now, it cannot be found at addons.mozilla.org.
-Unfortunately, Google Code forces all downloads to open in "Save as..." dialog, effectively disabling single-click extension install.
-Untill Firetabs moves to its own server without this restriction, it has to be installed manually. </p>
+<h2>Install</h2>
 
-<p>To install extension manually:</p>
+<p>Firetabs is a very young project and it cannot be found at addons.mozilla.org yet.
+You can install latest version using <a id="install_link" href="javascript: void 0">this link</a>.
+
+Alternatively you can visit project page at <a href="http://code.google.com/p/firetabs-extension/downloads/list">Google Code</a>, download binary package (.xpi file) and install Firetabs manually following steps below.
 
 <ol>
 <li>Download .xpi file from Downloads section</li>
@@ -65,7 +115,7 @@ Untill Firetabs moves to its own server without this restriction, it has to be i
 <li>Point to downloaded .xpi file.</li>
 </ol><h2>Develop</h2>
 
-<p>You are welcome to contribute!</p>
+<p>You are welcome to <a href="https://github.com/sunlaud/Firetabs">contribute</a>!</p>
 
 <p>In order to build binary distribution you must have <a href="http://www.gradle.org">gradle</a> installed.
 To build .xpi execute</p>
@@ -73,9 +123,6 @@ To build .xpi execute</p>
 <pre><code>gradle xpi
 </code></pre>
 
-<h2>Downloads</h2>
-
-<p>All downloadable files are available on <a href="http://code.google.com/p/firetabs-extension/downloads/list">Google Code project page</a> (GitHub abandoned Downloads support for new projects).</p>
 
 <h2>License</h2>
 
@@ -99,6 +146,6 @@ To build .xpi execute</p>
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+
   </body>
 </html>

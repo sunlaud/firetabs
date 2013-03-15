@@ -255,11 +255,11 @@ header ul {
 
 header li {
 	list-style-type: none;
-  width:132px;
-  height:15px;
+  width:152px;
+  height:34px;
 	margin-bottom: 12px;
 	line-height: 1em;
-	padding: 6px 6px 6px 7px;
+	padding: 0;
 
 	background: #AF0011;
 	background: -moz-linear-gradient(top, #AF0011 0%, #820011 100%);
@@ -289,15 +289,25 @@ header li:hover {
 
 a.buttons {
 	-webkit-font-smoothing: antialiased;
-	background: url(../images/arrow-down.png) no-repeat;
 	font-weight: normal;
 	text-shadow: rgba(0, 0, 0, 0.4) 0 -1px 0;
-	padding: 2px 2px 2px 22px;
+  padding: 9px 2px 2px 28px;
 	height: 30px;
+  display: block;
 }
 
+a.buttons:focus, a.buttons:active {
+  outline: none;
+}
+
+
+.download a.buttons {
+  background: url("../images/arrow-down.png") no-repeat scroll 7px 6px;
+}
+
+
 a.github {
-	background: url(../images/octocat-small.png) no-repeat 1px;
+  background: url("../images/octocat-small.png") no-repeat scroll 6px 6px;
 }
 
 a.buttons:hover {
@@ -305,6 +315,30 @@ a.buttons:hover {
 	text-decoration: none;
 }
 
+a.install {
+  background: url(../images/standard-remote-install-icon.png) no-repeat 3px 4px;
+}
+
+.loading-bg {
+    background: url("../images/loading_.gif") no-repeat scroll 100% 0 transparent;
+    display: inline-block;
+    padding-right: 31px;
+}
+
+img.loading {
+  border: none;
+  margin: 0;
+  padding: 0;
+  position: inherit;
+}
+
+.hidden {
+  display: none;
+}
+
+ul.nav li {
+  padding: 0;
+}
 
 /* Section - for main page content */
 
