@@ -14,11 +14,11 @@
     <em:contributor>A person who helped you</em:contributor>
     <em:contributor>Another one</em:contributor>
 -->
-    <em:homepageURL>http://sunlaud.github.com/Firetabs</em:homepageURL>
+    <em:homepageURL>http://sunlaud.github.com/firetabs</em:homepageURL>
     <!--em:optionsURL>chrome://sampleext/content/settings.xul</em:optionsURL>
     <em:aboutURL>chrome://sampleext/content/about.xul</em:aboutURL>
     <em:iconURL>chrome://sampleext/skin/mainicon.png</em:iconURL>-->
-    <em:updateURL>https://raw.github.com/sunlaud/Firetabs/master/src/update.rdf</em:updateURL
+    <em:updateURL>https://raw.github.com/sunlaud/firetabs/master/src/update.rdf</em:updateURL>
 
     <!-- Firefox -->
     <em:targetApplication>
