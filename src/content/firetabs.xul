@@ -5,14 +5,12 @@
   <script src="firetabs.js"/>
 
   <menupopup id="menu_ToolsPopup">
-    <menuitem id="id_firetabs" label="&firetabs.menu.cmdOpen;" command="cmd_firetabsOpen" key="key_firetabsOpen"/>
+    <menuitem id="id_firetabs" label="&firetabs.menu.cmdOpen;" key="key_firetabsOpen" command="cmd_firetabsOpen"/>
   </menupopup>
 
 
   <keyset id="mainKeyset">
-  <!--
-  <key id="key_firetabsOpen" key="VK_F12" modifiers="control shift" command="cmd_firetabsOpen"/>
-  -->
+    <key id="key_firetabsOpen" keycode="VK_F9" command="cmd_firetabsOpen"/>
   </keyset>
 
   <commandset id="mainCommandSet">
