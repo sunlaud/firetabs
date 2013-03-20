@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://firetabs/skin/browserOverlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://firetabs/locale/firetabs.dtd">
+<overlay id="firetabs-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="firetabs.js"/>
+  <script src="utils.js"/>
+
+  <menupopup id="menu_ToolsPopup">
+    <menuitem id="firetabs_menu_open" label="&firetabs.menu.cmdOpen;" key="firetabs_key_open" command="firetabs_cmd_open" image="chrome://firetabs/skin/firetabs-16.png" class="menuitem-iconic"/>
+  </menupopup>
+
+
+  <keyset id="mainKeyset">
+    <key id="firetabs_key_open" keycode="VK_F9" command="firetabs_cmd_open"/>
+  </keyset>
+
+  <commandset id="mainCommandSet">
+    <command id="firetabs_cmd_open" oncommand="sunlaud.firetabs.Firetabs.open(event)"/>
+  </commandset>
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="firetabs_stringBundle" src="chrome://firetabs/locale/firetabs.properties"/>
+  </stringbundleset>
+</overlay>

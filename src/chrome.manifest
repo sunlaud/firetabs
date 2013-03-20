@@ -1,7 +1,0 @@
-content	firetabs	content/
-overlay	chrome://browser/content/browser.xul	chrome://firetabs/content/firetabs.xul
-
-locale	firetabs	en-US	locale/en-US/
-
-skin	firetabs	classic/1.0	skin/
-style	chrome://global/content/customizeToolbar.xul	chrome://firetabs/skin/firetabs.css
