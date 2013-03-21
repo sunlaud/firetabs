@@ -17,46 +17,25 @@
 
 <script>
 
-function blockUI() {
-  $.blockUI({
-    message: '<img src="images/loading-text-big.gif" style="margin: 7px 40px 0; border: none;">',
-    css: {
-      'background-color': '#171717',
-      width: '250px',
-      left: '10%',
-      right: '10%',
-      margin: 'auto'
+function installAddon(aEvent) {
+  for (var a = aEvent.target; a.href === undefined;) {
+    a = a.parentNode;
+  }
+  var params = {
+    "Firetabs": {
+      URL: aEvent.target.href,
+      IconURL: aEvent.target.getAttribute("iconURL"),
+      Hash: aEvent.target.getAttribute("hash"),
+      toString: function () { return this.URL; }
     }
-  });
-}
-
-
-function installPlugin(event) {
-  //$(event.target).parent().addClass("loading");
-  //$(".loading", event.target).show();
-  blockUI();
-  setTimeout(function(){
-    $.ajax({
-        url: "https://api.github.com/repos/sunlaud/firetabs/contents/firetabs-0.3.xpi?ref=dist",
-        dataType: "jsonp",
-        success: function(response) {
-            if(response.meta.status == 200) {
-                window.location.href = "data: application/x-xpinstall;base64," + response.data.content;
-            } else {
-                alert("Failed to get Firetabs binary, try to download and install it manually");
-            }
-            //$(event.target).parent().removeClass("loading");
-            //$(".loading", event.target).hide();
-            $.unblockUI()
-        }
-    });
-  }, 0);
-
+  };
+  InstallTrigger.install(params);
+  return false;
 }
 
 $(function(){
-  $(".install").click(installPlugin);
-  $("#install_link").click(installPlugin);
+  $(".install").click(installAddon);
+  $("#install_link").click(installAddon);
 });
 
 </script>
@@ -69,8 +48,11 @@ $(function(){
         <p class="header">Firefox extension that lists all your open tabs in one html document</p>
 
         <ul>
-          <li><p><a class="buttons install" href="javascript: void 0">Install</a></p></li>
-          <li class="download"><a class="buttons" href="http://code.google.com/p/firetabs-extension/downloads/list">Download</a></li>
+          <li><p><a class="buttons install"  href="http://debian/firetabs-test-install/firetabs-0.3.xpi"
+                    iconURL="http://debian/firetabs-test-install/firetabs-64.png"
+                    hash="sha1:467ae7c4b54df2493fa6a1094771020908e51fb4">Install</a>
+          </p></li>
+          <li class="download"><a class="buttons" href="http://code.google.com/p/firetabs-extension/downloads/list">Downloads</a></li>
           <li><a class="buttons github" href="https://github.com/sunlaud/firetabs">View On GitHub</a></li>
         </ul>
 
@@ -96,10 +78,10 @@ $(function(){
 
 <ul>
   <li>Every entry in tab list is hyperlink to page loaded in tab, so you can easily (re)open your tabs</li>
-  <li>Tab list can be saved just as regular html file (File --&gt; Save Page As, just make sure to choose "Web Page,
+  <li>Tab list can be saved just as regular html file (File &rarr; Save Page As, just make sure to choose "Web Page,
       complete" as output format). You can later open tab list or share it with someone else (even without Firetabs
       installed) - it's just single plain html file</li>
-  <li>You can remove some tabs (or whole windows) from tab list (red "x") if you don't want to see them
+  <li>You can remove some tabs (or whole windows) from tab list ("✘" button) if you don't want to see them
       (they will not be saved either)</li>
   <li>In list tabs are grouped by windows they belong to for easy navigation</li>
   <li>Tab url is shown as additional hint (in case document title is empty or/and not very informative)</li>
@@ -107,17 +89,25 @@ $(function(){
 
 <h2>Install</h2>
 
-<p>
-You can install latest version using <a id="install_link" href="javascript: void 0">this link</a>.
 
-All other versions are available on project page at <a href="http://code.google.com/p/firetabs-extension/downloads/list">Google Code</a>. If you download extension from there you'll have to install it manually:
+You can install latest version using
+<a id="install_link" href="http://debian/firetabs-test-install/firetabs-0.3.xpi"
+                    iconURL="http://debian/firetabs-test-install/firetabs-64.png"
+                    hash="sha1:467ae7c4b54df2493fa6a1094771020908e51fb4">this link</a>.
 
+All other versions are available on project page at <a href="http://code.google.com/p/firetabs-extension/downloads/list">Google Code</a>. If you download extension from there you'll have to install it manually.
+<br/>
+<strong>Simple way:</strong> just open downloaded .xpi file in firefox (File &rarr; Open).
+<br/>
+<strong>Harder way:</strong>
 <ol>
-  <li>Download .xpi file</li>
-  <li>Open Firefox Extension Manager: Tools --&gt; Addons</li>
+  <li>Open Firefox Extension Manager: Tools &rarr; Addons</li>
   <li>Click drop-down box in top right corner (near search field) and select "Install addon from file"</li>
   <li>Point to downloaded .xpi file.</li>
 </ol>
+
+<h2>HowTo</h2>
+You can find Firetabs under Tools menu. Once tab list is opened you can delete individual tabs and whole windows from list using "✘" button.
 
 <h2>Develop</h2>
 
