@@ -28,29 +28,30 @@ task appJar(type: Zip) {
 }
 
 task manifest(type:Copy) {
-    from sources
-    include 'chrome.manifest'
+    from "${sources}/chrome.manifest"
     filter { line -> line.replaceAll("\\s(${appDirs.join('|')})", { match -> "\tjar:chrome/${project.name}.jar!/" + match[1] }) }
     into explodedXpi
 }
 
-task miscFiles(type:Copy) {
-    from '.'
-    include(additionalFiles)
+task mainIcon(type:Copy) {
+    from "${appRoot}/skin/classic/firetabs-64.png"
     into explodedXpi
-    includeEmptyDirs = false
+    rename '.*', 'icon.png'
 }
 
-task xpiContents(type:Copy, dependsOn: [appJar, manifest, miscFiles]) {
+task xpiExploded(type:Copy, dependsOn: [appJar, manifest, mainIcon]) {
     from sources
     include 'install.rdf'
     include 'defaults/'
+    from(additionalFiles) {
+        include '*'
+    }
     into explodedXpi
     includeEmptyDirs = false
 }
 
 task xpi(type: Zip) {
-    from xpiContents
+    from xpiExploded
     extension = 'xpi'
 }
 

@@ -16,7 +16,7 @@ if(!sunlaud.firetabs) sunlaud.firetabs = {};
     /* get localized string by name */
     function getString(name) {
         try {
-            return document.getElementById("firetabs_stringBundle").getString(name);
+            return document.getElementById("stringbundle_firetabs").getString(name);
         } catch (ex) {
             log.error("failed to get translation for: " + name + ", details:\n" + ex);
         }

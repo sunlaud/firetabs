@@ -6,19 +6,19 @@
   <script src="utils.js"/>
 
   <menupopup id="menu_ToolsPopup">
-    <menuitem id="firetabs_menu_open" label="&firetabs.menu.cmdOpen;" key="firetabs_key_open" command="firetabs_cmd_open" image="chrome://firetabs/skin/firetabs-16.png" class="menuitem-iconic"/>
+    <menuitem id="menu_firetabs" label="&firetabs.menu.cmdOpen;"  image="chrome://firetabs/skin/firetabs-16.png" key="key_firetabs_open" command="cmd_firetabs_open" class="menuitem-iconic"/>
   </menupopup>
 
 
   <keyset id="mainKeyset">
-    <key id="firetabs_key_open" keycode="VK_F9" command="firetabs_cmd_open"/>
+    <key id="key_firetabs_open" keycode="VK_F9" command="cmd_firetabs_open"/>
   </keyset>
 
   <commandset id="mainCommandSet">
-    <command id="firetabs_cmd_open" oncommand="sunlaud.firetabs.Firetabs.open(event)"/>
+    <command id="cmd_firetabs_open" oncommand="sunlaud.firetabs.Firetabs.open(event)"/>
   </commandset>
 
   <stringbundleset id="stringbundleset">
-    <stringbundle id="firetabs_stringBundle" src="chrome://firetabs/locale/firetabs.properties"/>
+    <stringbundle id="stringbundle_firetabs" src="chrome://firetabs/locale/firetabs.properties"/>
   </stringbundleset>
 </overlay>
