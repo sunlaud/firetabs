@@ -13,7 +13,7 @@
                 <em:minVersion>3.6</em:minVersion>
                 <em:maxVersion>99.0.*</em:maxVersion>
                 <em:updateLink>http://firetabs-extension.googlecode.com/files/firetabs-0.3.xpi</em:updateLink>
-                <updateHash>sha1:467ae7c4b54df2493fa6a1094771020908e51fb4</updateHash>
+                <em:updateHash>sha1:467ae7c4b54df2493fa6a1094771020908e51fb4</em:updateHash>
               </RDF:Description>
             </em:targetApplication>
           </RDF:Description>
