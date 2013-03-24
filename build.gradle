@@ -13,6 +13,7 @@ ext {
     appDirs = ['skin/','content/','locale/']
     additionalFiles = ['LICENSE']
     explodedXpi = "${buildDir}/${project.name}"
+    mainIcon = "${appRoot}/skin/classic/firetabs-64.png"
 }
 
 
@@ -27,26 +28,26 @@ task appJar(type: Zip) {
     version = null
 }
 
-task manifest(type:Copy) {
+task manifest(type: Copy) {
     from "${sources}/chrome.manifest"
-    filter { line -> line.replaceAll("\\s(${appDirs.join('|')})", { match -> "\tjar:chrome/${project.name}.jar!/" + match[1] }) }
     into explodedXpi
+    filter { line -> line.replaceAll("\\s(${appDirs.join('|')})", { match -> "\tjar:chrome/${project.name}.jar!/" + match[1] }) }
 }
 
-task mainIcon(type:Copy) {
-    from "${appRoot}/skin/classic/firetabs-64.png"
+task icon(type: Copy) {
+    from mainIcon
     into explodedXpi
     rename '.*', 'icon.png'
 }
 
-task xpiExploded(type:Copy, dependsOn: [appJar, manifest, mainIcon]) {
+task xpiExploded(type: Copy, dependsOn: [appJar, manifest, icon]) {
     from sources
-    include 'install.rdf'
-    include 'defaults/'
     from(additionalFiles) {
         include '*'
     }
     into explodedXpi
+    include 'install.rdf'
+    include 'defaults/'
     includeEmptyDirs = false
 }
 
