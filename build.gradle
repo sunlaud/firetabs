@@ -3,7 +3,7 @@ apply plugin: "base"
 //~~~~~~~~~~~~~~~~~~~~~ Properties And Configs ~~~~~~~~~~~~~~~~~~~~~
 
 group = "sunlaud.firetabs"
-version = "0.3"
+version = "0.3.1"
 description = "Firefox extension that collects all open tabs into one document"
 
 

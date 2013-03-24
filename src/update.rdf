@@ -6,14 +6,14 @@
 
         <RDF:li>
           <RDF:Description>
-            <em:version>0.3</em:version>
+            <em:version>0.3.1</em:version>
             <em:targetApplication>
               <RDF:Description>
                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-                <em:minVersion>3.6</em:minVersion>
+                <em:minVersion>4.0</em:minVersion>
                 <em:maxVersion>99.0.*</em:maxVersion>
-                <em:updateLink>http://firetabs-extension.googlecode.com/files/firetabs-0.3.xpi</em:updateLink>
-                <em:updateHash>sha1:467ae7c4b54df2493fa6a1094771020908e51fb4</em:updateHash>
+                <em:updateLink>http://firetabs-extension.googlecode.com/files/firetabs-0.3.1.xpi</em:updateLink>
+                <em:updateHash>sha1:411a633f7229972db53d2a6d573f96095214524b</em:updateHash>
               </RDF:Description>
             </em:targetApplication>
           </RDF:Description>
