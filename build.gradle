@@ -54,9 +54,8 @@ task xpiExploded(type: Copy, dependsOn: [appJar, manifest, icon]) {
 task xpi(type: Zip) {
     from xpiExploded
     extension = 'xpi'
+    doLast {
+        ant.checksum file: archivePath, algorithm: "SHA-1"
+    }
 }
-
-
-
-
 
