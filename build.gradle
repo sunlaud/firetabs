@@ -8,10 +8,12 @@ description = "Firefox extension that collects all open tabs into one document"
 
 
 ext {
+    sources = 'src/addon'
+    appRoot = "${sources}/chrome"
     appDirs = ['skin/','content/','locale/']
-    additionalFiles = ['readme.txt']
+    additionalFiles = ['LICENSE']
     explodedXpi = "${buildDir}/${project.name}"
-    sources = 'src'
+    mainIcon = "${appRoot}/skin/classic/firetabs-64.png"
 }
 
 
@@ -19,34 +21,41 @@ ext {
 
 
 task appJar(type: Zip) {
-    from sources
+    from appRoot
     include(appDirs)
     destinationDir = file("${explodedXpi}/chrome")
     extension = 'jar'
     version = null
 }
 
-task manifest(type:Copy) {
-    from sources
-    include 'chrome.manifest'
-    filter { line -> line.replaceAll("\\s(${appDirs.join('|')})", { match -> "\tjar:chrome/${project.name}.jar!/" + match[1] }) }
+task manifest(type: Copy) {
+    from "${sources}/chrome.manifest"
     into explodedXpi
+    filter { line -> line.replaceAll("\\s(${appDirs.join('|')})", { match -> "\tjar:chrome/${project.name}.jar!/" + match[1] }) }
 }
 
-task xpiContents(type:Copy, dependsOn: [appJar, manifest]) {
-    from sources
-    include 'install.rdf'
-    include(additionalFiles)
+task icon(type: Copy) {
+    from mainIcon
     into explodedXpi
+    rename '.*', 'icon.png'
+}
+
+task xpiExploded(type: Copy, dependsOn: [appJar, manifest, icon]) {
+    from sources
+    from(additionalFiles) {
+        include '*'
+    }
+    into explodedXpi
+    include 'install.rdf'
+    include 'defaults/'
     includeEmptyDirs = false
 }
 
 task xpi(type: Zip) {
-    from xpiContents
+    from xpiExploded
     extension = 'xpi'
+    doLast {
+        ant.checksum file: archivePath, algorithm: "SHA-1"
+    }
 }
-
-
-
-
 

@@ -1,27 +1,10 @@
-if(!sunlaud) var sunlaud={};
+if(typeof(sunlaud) == 'undefined') var sunlaud = {};
+if(!sunlaud.firetabs) sunlaud.firetabs = {};
+
 
 (function() {
 
-    const log = {
-        debug: function(msg) {
-            Application.console.log("extension firetabs: " + msg);
-        },
-        error: function(msg) {
-            Components.utils.reportError("extension firetabs: " + msg);
-        }
-    };
-
-    /* get localized string by name */
-    function getString(name) {
-        try {
-            return document.getElementById("stringBundleFiretabs").getString(name);
-        } catch (ex) {
-            log.error("failed to get translation for: " + name + ", details:\n" + ex);
-        }
-        // fall off: if no translation - use the label after last dot
-        var lastDotIndex = name.lastIndexOf(".");
-        return (lastDotIndex > 0) ? name.substr(lastDotIndex + 1) : name;
-    }
+    const appMainPage = "chrome://firetabs/content/frontend/firetabs.html";
 
 
     function showTablist() {
@@ -41,8 +24,8 @@ if(!sunlaud) var sunlaud={};
             }
             winList.push(tabList);
         }
-        var url = "chrome://firetabs/content/firetabs.html";
-        var win = window.open(url);
+        var win = window.open(appMainPage, "", "location=yes,menubar=yes");
+        win.opener = null;
         /* wait for window load, events onLoad can not be bind due to unknown reason */
         var timerId = setInterval(function() {
             if(win.document && win.document.body) {
@@ -59,7 +42,7 @@ if(!sunlaud) var sunlaud={};
 
 
 
-    sunlaud.Firetabs = {
+    sunlaud.firetabs.Firetabs = {
         init: function(e) {
             this.initialized = true;
         },

@@ -7,7 +7,7 @@
     <em:id>firetabs@sunlaud</em:id>
     <em:name>Firetabs</em:name>
     <em:version>0.3.1</em:version>
-    <em:description>Extension that shows all open tabs in one document with hyperlinks</em:description>
+    <em:description>See all your open tabs in one document with hyperlinks</em:description>
     <em:creator>sunlaud</em:creator>
     <!-- optional items -->
 <!--
@@ -16,8 +16,7 @@
 -->
     <em:homepageURL>http://sunlaud.github.com/firetabs</em:homepageURL>
     <!--em:optionsURL>chrome://sampleext/content/settings.xul</em:optionsURL>
-    <em:aboutURL>chrome://sampleext/content/about.xul</em:aboutURL>
-    <em:iconURL>chrome://sampleext/skin/mainicon.png</em:iconURL>-->
+    <em:aboutURL>chrome://sampleext/content/about.xul</em:aboutURL>-->
     <em:updateURL>https://raw.github.com/sunlaud/firetabs/master/src/update.rdf</em:updateURL>
 
     <!-- Firefox -->
